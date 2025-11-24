@@ -3,6 +3,8 @@
 A production-ready boilerplate for building .NET Web APIs using **Clean Architecture** principles with **CQRS**, **MediatR**, and **FluentValidation**.
 
 [![.NET](https://img.shields.io/badge/.NET-8.0-512BD4)](https://dotnet.microsoft.com/)
+[![.NET CI](https://github.com/GabbyFerm/CleanArchitectureBoilerplate/actions/workflows/dotnet-ci.yml/badge.svg)](https://github.com/GabbyFerm/CleanArchitectureBoilerplate/actions/workflows/dotnet-ci.yml)
+[![Code Format](https://github.com/GabbyFerm/CleanArchitectureBoilerplate/actions/workflows/code-format.yml/badge.svg)](https://github.com/GabbyFerm/CleanArchitectureBoilerplate/actions/workflows/code-format.yml)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
@@ -313,3 +315,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 If you find this boilerplate helpful, please give it a ⭐ on GitHub!
 
 **Happy coding! 🚀**
+
