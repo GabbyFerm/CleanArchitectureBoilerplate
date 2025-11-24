@@ -1,0 +1,54 @@
+name: PR Helper
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  pr-greeting:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Add PR comment with checklist
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const comment = `
+          ## Hi @${{ github.event.pull_request.user.login }}, thanks for the PR! 🎉
+          
+          ### Quick Checklist:
+          
+          Please ensure you've completed these steps before requesting review:
+          
+          - [ ] Target branch is \`develop\` (or \`main\` for hotfixes)
+          - [ ] Code builds successfully (\`dotnet build\`)
+          - [ ] All tests pass (\`dotnet test\`)
+          - [ ] Code is formatted (\`dotnet format\`)
+          - [ ] New features have tests
+          - [ ] \`CHANGELOG.md\` is updated
+          - [ ] Documentation is updated (if needed)
+          
+          ### Testing:
+          
+          Please describe how you tested your changes:
+          - [ ] Unit tests
+          - [ ] Integration tests
+          - [ ] Manual testing
+          
+          ---
+          
+          💡 **Tip:** Run \`dotnet format && dotnet test\` before pushing to catch issues early!
+          
+          🤖 *This is an automated message*
+          `;
+          
+          github.rest.issues.createComment({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: context.issue.number,
+            body: comment
+          });
