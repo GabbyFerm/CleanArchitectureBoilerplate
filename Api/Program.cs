@@ -87,11 +87,11 @@ namespace Api
 
             // Health check endpoint (optional but useful)
             app.MapGet("/health", () => Results.Ok(new
-                {
-                    status = "healthy",
-                    timestamp = DateTime.UtcNow,
-                    environment = app.Environment.EnvironmentName
-                }))
+            {
+                status = "healthy",
+                timestamp = DateTime.UtcNow,
+                environment = app.Environment.EnvironmentName
+            }))
                 .ExcludeFromDescription();
         }
     }
